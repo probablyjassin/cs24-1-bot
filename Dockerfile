@@ -9,6 +9,9 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+# Add data volume
+VOLUME /app/data
+
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -16,6 +19,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 ENV DISCORD_TOKEN=''
 ENV CUR_SERVER=''
 ENV MENSA_CHANNEL=''
+ENV MEME_CHANNEL=''
 
 # Run bot.py when the container launches
 CMD ["python", "-u", "main.py"]
